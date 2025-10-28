@@ -50,6 +50,102 @@ my-app/
 
 Routing in Next.js
 
+1. Basic Routing
+
+Each folder inside /app represents a route.
+Each route needs a page.tsx or page.js.
+
+app/
+ ├── page.tsx          →  localhost:3000/
+ ├── about/
+ │    └── page.tsx     →  localhost:3000/about
+ └── contact/
+      └── page.tsx     →  localhost:3000/contact
+
+
+Example Code — app/about/page.tsx:
+
+export default function AboutPage() {
+  return <h1>About Us</h1>;
+}
+
+
+2. Nested Routing
+You can nest folders to create sub-routes.
+
+app/
+ └── blog/
+      ├── page.tsx           → /blog
+      └── posts/
+           └── page.tsx      → /blog/posts
+
+app/blog/posts/page.tsx:
+
+export default function BlogPosts() {
+  return <h1>All Blog Posts</h1>;
+}
+
+
+3. Dynamic Routing
+Use square brackets [ ] to make dynamic routes (like /blog/1, /blog/2, etc.)
+
+app/
+ └── blog/
+      ├── page.tsx            → /blog
+      └── [id]/
+           └── page.tsx       → /blog/1, /blog/2, etc.
+
+app/blog/[id]/page.tsx:
+
+interface BlogPageProps {
+  params: { id: string };
+}
+
+export default function BlogPage({ params }: BlogPageProps) {
+  return <h1>Blog ID: {params.id}</h1>;
+}
+
+
+4. Dynamic Nested Routing Example
+
+app/
+ └── users/
+      └── [userId]/
+           └── posts/
+                └── [postId]/
+                     └── page.tsx
+
+
+app/users/[userId]/posts/[postId]/page.tsx:
+
+interface PageProps {
+  params: { userId: string; postId: string };
+}
+
+export default function UserPost({ params }: PageProps) {
+  return (
+    <div>
+      <h2>User: {params.userId}</h2>
+      <h3>Post: {params.postId}</h3>
+    </div>
+  );
+}
+
+
+5. Linking Between Pages
+Use Next.js <Link> for navigation.
+
+import Link from "next/link";
+
+export default function Home() {
+  return (
+    <div>
+      <h1>Home Page</h1>
+      <Link href="/about">Go to About</Link>
+    </div>
+  );
+}
+
 
 
 
