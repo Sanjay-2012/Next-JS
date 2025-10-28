@@ -1,0 +1,57 @@
+NEXT JS
+
+
+What is Next.js?
+
+Next.js is a React framework for building server-rendered and statically generated web applications with better performance, SEO, and developer experience.
+
+It extends React by adding features like:
+
+✅ File-based Routing
+✅ Server-Side Rendering (SSR)
+✅ Static Site Generation (SSG)
+✅ API Routes
+✅ Image Optimization
+✅ Middleware & Server Actions
+
+Difference Between React.js and Next.js
+
+| Feature          | React.js                                   | Next.js                             |
+| ---------------- | ------------------------------------------ | ----------------------------------- |
+| **Type**         | JavaScript library for UI                  | Full-stack React framework          |
+| **Rendering**    | Client-side only                           | Server-side, Static, or Client-side |
+| **Routing**      | Manual using `react-router-dom`            | File-based routing (built-in)       |
+| **SEO**          | Poor (since content loads on client)       | Excellent (server-rendered pages)   |
+| **Setup**        | Needs config for routing, SSR, etc.        | Comes pre-configured                |
+| **Performance**  | Slower initial load                        | Faster with pre-rendering           |
+| **API Handling** | Needs separate backend (like Node/Express) | Built-in API routes                 |
+| **Deployment**   | Manual setup                               | Easy deployment (Vercel, etc.)      |
+
+
+Next.js Folder Structure
+When you create a Next.js app (npx create-next-app@latest):
+
+my-app/
+│
+├── app/                # New App Router (from Next.js 13+)
+│   ├── page.tsx        # Home page
+│   ├── about/
+│   │   └── page.tsx    # About page
+│   └── blog/
+│       └── page.tsx    # Blog page
+│
+├── public/             # Static files (images, fonts)
+├── styles/             # CSS or Tailwind styles
+├── components/         # Reusable components
+├── package.json
+└── next.config.js      # Config file
+
+
+
+Routing in Next.js
+
+
+
+
+
+
